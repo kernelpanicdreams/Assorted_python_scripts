@@ -15,6 +15,10 @@ thirdWord = ["licker", "emulator", "gremlin", "villain", "detector", "pancake", 
  "coupon", "cell", "reactor", "device", "train", "robot", "arc", "expression", "missile", "pack",
  "dispenser", "chip", "cloud", "launcher", "engine", "patch", "balloon", "module", "toaster", "archive",
  "sponge", "token", "protocol", "arc", "train", "algorithm", "bundle", "ring", "attempt", "monologue"]
-def generateinsult() -> str:
-    return "You " +random.choice(firstWord) + " " +random.choice(secondWord) + " " +random.choice(thirdWord)
-print (generateinsult())
+def generateinsult(name) -> str:
+    return name +", you " +random.choice(firstWord) + " " +random.choice(secondWord) + " " +random.choice(thirdWord)
+insultedName = input("Who would you like to insult? ")
+numOfInsults = int(input("How many insults? "))
+with open('output.txt', 'w') as f:
+    for i in range(numOfInsults):
+        f.write(str(i+1) + ". " + generateinsult(insultedName) + "\n")
